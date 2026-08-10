@@ -9,9 +9,9 @@ jobs:
         with:
           distribution: temurin
           java-version: '21'
-      - name: Find project folder
+      - name: Find project folder (where settings.gradle is)
         id: find
-        run: echo "dir=$(dirname "$(find . -name build.gradle | head -n1)")" >> "$GITHUB_OUTPUT"
+        run: echo "dir=$(dirname "$(find . -name settings.gradle | head -n1)")" >> "$GITHUB_OUTPUT"
       - name: Build
         working-directory: ${{ steps.find.outputs.dir }}
         run: |
